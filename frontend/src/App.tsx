@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import List from './pages/FileList'
-import Upload from './pages/FileUpload'
-import Header from './components/Header'
+import Home from './pages/home'
+import About from './pages/about'
+import List from './pages/filelist'
+import Upload from './pages/fileupload'
+import Header from './components/header'
 
 function App() {
   return (

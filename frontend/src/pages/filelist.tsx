@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
 
 // ファイル情報の型定義
 interface FileInfo {
