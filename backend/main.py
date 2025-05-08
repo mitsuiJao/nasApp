@@ -4,7 +4,7 @@ from pathlib import Path
 import os
 
 origins = []
-UPLOAD_DIR = '/home/nishima/doc/program/nasApp/dir'
+DIR = './dir'
 
 app = FastAPI()
 
@@ -25,10 +25,9 @@ def read_root():
 @app.get("/getfile")
 def read_item():
     res = [] 
-    os.path.abspath(__file__);
-    files = os.listdir();
+    files = os.listdir(DIR);
     for f in files:
-        info = os.stat(f)
+        info = os.stat(DIR + "/" + f)
         res.append({
             "name": f,
             "size": info.st_size,
@@ -40,7 +39,7 @@ def read_item():
 
 @app.post("/upload")
 def upload_file(file: UploadFile = File(...)):
-	uppath = Path(UPLOAD_DIR)
+	uppath = Path(DIR)
 	uppath.mkdir(parents=True, exist_ok=True)
 	save_path = uppath / file.filename
 
